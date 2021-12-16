@@ -105,6 +105,8 @@ class UnitController extends Controller
      */
     public function destroy(Unit $unit)
     {
-        //
+        $unit->delete();
+       return redirect()->route('unit.index');
+
     }
 }

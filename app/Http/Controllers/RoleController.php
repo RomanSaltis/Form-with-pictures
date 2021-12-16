@@ -92,8 +92,12 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+       if($role->roleUnits->count()){
+           return 'Trinti negalima, nes turi knygų';
+       }
        $role->delete();
        return redirect()->route('role.index');
+
 
     }
 }
