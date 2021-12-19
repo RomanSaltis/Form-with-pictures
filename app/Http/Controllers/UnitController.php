@@ -49,7 +49,8 @@ class UnitController extends Controller
        $unit->profile_photo = $request->unit_profile_photo;
        $unit->role_id = $request->role_id;
        $unit->save();
-       return redirect()->route('unit.index');
+       return redirect()->route('unit.index')->with('success_message', 'Sekmingai įrašytas.');
+
 
     }
 
@@ -93,7 +94,7 @@ class UnitController extends Controller
        $unit->profile_photo = $request->unit_profile_photo;
        $unit->role_id = $request->role_id;
        $unit->save();
-       return redirect()->route('unit.index');
+       return redirect()->route('unit.index')->with('success_message', 'Sėkmingai pakeistas.');;
 
     }
 
@@ -106,7 +107,7 @@ class UnitController extends Controller
     public function destroy(Unit $unit)
     {
         $unit->delete();
-       return redirect()->route('unit.index');
+       return redirect()->route('unit.index')->with('success_message', 'Sekmingai ištrintas.');
 
     }
 }

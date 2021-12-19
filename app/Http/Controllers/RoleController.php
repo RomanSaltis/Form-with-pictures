@@ -37,12 +37,13 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRoleRequest $request)
+    
     {
         $role = new Role;
         $role->name = $request->role_name;
         $role->super_unit = $request->role_super_unit;
         $role->save();
-        return redirect()->route('role.index');
+        return redirect()->route('role.index')->with('success_message', 'Sekmingai įrašytas.');
 
     }
 
@@ -80,7 +81,7 @@ class RoleController extends Controller
        $role->name = $request->role_name;
        $role->super_unit = $request->role_super_unit;
        $role->save();
-       return redirect()->route('role.index');
+       return redirect()->route('role.index')->with('success_message', 'Sėkmingai pakeistas.');
 
     }
 
@@ -93,10 +94,10 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
        if($role->roleUnits->count()){
-           return 'Trinti negalima, nes turi knygų';
+           return redirect()->route('role.index')->with('info_message', 'Trinti negalima, nes turi unit.');
        }
        $role->delete();
-       return redirect()->route('role.index');
+       return redirect()->route('role.index')->with('success_message', 'Sekmingai ištrintas.');
 
 
     }
