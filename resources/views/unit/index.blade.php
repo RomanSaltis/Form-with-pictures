@@ -7,22 +7,22 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">Unit</div>
+               <div class="card-header">Vartotojas</div>
 
                <div class="card-header">
                  <form action="{{route('unit.indexSpecifics')}}" method="get">
                    Rūšiavimas
                    <select class="form-control" name="order" id="">
                      <option value="0">rūšiuokite pagal</option>
-                     <option value="title">Pavadinimas</option>
-                     <option value="pages">Puslapiai</option>
-                     <option value="isbn">Isbn</option>
+                     <option value="name">Vardas</option>
+                     <option value="surname">Pavardė</option>
+                     
                    </select>
                    Filtravimas
                    <select class="form-control" name="filter" id="">
                      <option value="0">filtruokite pagal</option>
-                     @foreach($creators as $creator)
-                     <option value="{{$creator->id}}">{{$creator->name}} {{$creator->surname}}</option>
+                     @foreach($consumers as $consumer)
+                     <option value="{{$consumer->id}}">{{$consumer->name}}{{$consumer->super_unit}} </option>
                      @endforeach
                    </select>
                    <button class="btn btn-primary" type="submit">rūšiuokite</button>
@@ -35,15 +35,15 @@
 
                <table class="table">
                           <tr>
-                              <th>name</th>
-                              <th>surname</th>
-                              <th>Role</th>
-                              <th>phone</th>
-                              <th>address</th>
-                              <th>profile photo</th>
+                              <th>Vardas</th>
+                              <th>Pavardė</th>
+                              <th>Rolė</th>
+                              <th>Telefono numeris</th>
+                              <th>Adresas</th>
+                              <th>Nuotrauka</th>
                               @auth
-                              <th>Edit</th>
-                              <th>Delete</th>
+                              <th>Redaguoti</th>
+                              <th>Trinti</th>
                               @endauth
                           </tr>
                         @foreach ($units as $unit)
@@ -53,8 +53,10 @@
                                 <td>{{$unit->unitRole->name}} {{$unit->unitRole->super_unit}}</td>
                                 <td>{{$unit->phone}}</td>
                                 <td>{{$unit->address}}</td>
-                                <td>{{$unit->profile_photo}}</td>
-                                @auth
+                                <td>
+                                    <img src="{{asset('unitPhotos/'.$unit->profile_photo)}}" alt="unitnuotrauka" width="128" height="128">
+                                </td>
+                                   @auth
                                 <td><a class="btn btn-secondary" href="{{route('unit.edit',[$unit])}}">Redaguoti</a></td>   
                                 <td>
                                 <form method="POST" action="{{route('unit.destroy', $unit)}}">
@@ -66,19 +68,8 @@
                             </tr>
                         @endforeach
                       </table>
-
                  
-                <!-- @foreach ($units as $unit)
-                  <a href="{{route('unit.edit',[$unit])}}">{{$unit->title}} {{$unit->unitRole->name}} {{$unit->unitRole->super_unit}}</a>
-                  <form method="POST" action="{{route('unit.destroy', [$unit])}}">
-                  @csrf
-                  <button type="submit">DELETE</button>
-                  </form>
-                  <br>
-                @endforeach -->
-
-
-               </div>
+                </div>
            </div>
        </div>
    </div>

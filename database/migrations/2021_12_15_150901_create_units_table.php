@@ -19,7 +19,7 @@ class CreateUnitsTable extends Migration
             $table->string("surname");
             $table->string("phone");
             $table->text("address");
-            $table->string("profile_photo");
+            $table->string("profile_photo")->nullable();
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();

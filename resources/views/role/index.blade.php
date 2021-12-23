@@ -5,17 +5,17 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">PAVADINIMAS role</div>
+               <div class="card-header">Rolė</div>
 
                <div class="card-body">
 
                <table class="table">
                           <tr>
-                              <th>Role</th>
-                              <th>super_unit</th>
+                              <th>Rolė</th>
+                              <th>Teisės</th>
                               @auth
-                              <th>Edit</th>
-                              <th>Delete</th>
+                              <th>Redaguoti</th>
+                              <th>Trinti</th>
                               @endauth
                           </tr>
                         @foreach ($roles as $role)
@@ -35,17 +35,7 @@
                         @endforeach
                       </table>
                  
-                  <!-- @foreach ($roles as $role)
-                    <a href="{{route('role.edit',[$role])}}">{{$role->name}} {{$role->super_unit}}</a>
-                    <form method="POST" action="{{route('role.destroy', $role)}}">
-                    @csrf
-                    <button type="submit">DELETE</button>
-                    </form>
-                    <br>
-                  @endforeach -->
-
-
-
+                  
                </div>
            </div>
        </div>

@@ -11,18 +11,18 @@
                  
                <form method="POST" action="{{route('role.store')}}">
                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="role_name">
-                        <small class="form-text text-muted">Kažkoks parašymas.</small>
+                        <label>Rolė</label>
+                        <input type="text" class="form-control" name="role_name" value="{{old('role_name')}}">
+                        <small class="form-text text-muted">role</small>
                     </div>
 
                     <div class="form-group">
-                        <label>Super_unit</label>
-                        <input type="text" class="form-control" name="role_super_unit">
-                        <small class="form-text text-muted">Super_unit</small>
+                        <label>Teisės</label>
+                        <input type="text" class="form-control" name="role_super_unit" value="{{old('role_super_unit')}}">
+                        <small class="form-text text-muted">status</small>
                     </div>
                   @csrf
-                  <button type="submit">ADD</button>
+                  <button class="btn btn-success" type="submit">Įrašyti</button>
                </form>
 
                </div>

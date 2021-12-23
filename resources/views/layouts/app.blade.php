@@ -59,34 +59,34 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                       Units
+                                       Vartotojai
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('unit.index') }}">
                                     
-                                        Unit list
+                                        Vartotojų sąrašas
                                     </a>
                                         <a class="dropdown-item" href="{{ route('unit.create') }}">
                                     
-                                        New unit
+                                        Naujas vartotojas
                                     </a>
                                 </div>
                             </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                       Roles
+                                       Rolės
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('role.index') }}">
                                     
-                                        Roles list
+                                        Rolių sąrašas
                                     </a>
                                         <a class="dropdown-item" href="{{ route('role.create') }}">
                                     
-                                        New role
+                                        Nauja rolė
                                     </a>
                                 </div>
                             </li>

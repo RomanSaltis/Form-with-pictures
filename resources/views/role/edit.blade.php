@@ -5,24 +5,24 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">Name role</div>
+               <div class="card-header">Redaguokite rolę</div>
 
                <div class="card-body">
 
                   <form method="POST" action="{{route('role.update',$role)}}">
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="role_name" value="{{$role->name}}">
-                        <small class="form-text text-muted">Kažkoks parašymas.</small>
+                        <label>Rolė</label>
+                        <input type="text" class="form-control" name="role_name" value="{{old('role_name',$role->name)}}">
+                        <small class="form-text text-muted">role</small>
                     </div>
 
                     <div class="form-group">
-                        <label>Super_unit</label>
-                        <input type="text" class="form-control" name="role_super_unit" value="{{$role->super_unit}}">
-                        <small class="form-text text-muted">Super_unit</small>
+                        <label>Teisės</label>
+                        <input type="text" class="form-control" name="role_super_unit" value="{{old('role_super_unit',$role->super_unit)}}">
+                        <small class="form-text text-muted">status</small>
                     </div>
                     @csrf
-                    <button type="submit">EDIT</button>
+                    <button class="btn btn-success" type="submit">Atnaujinti</button>
                   </form>
 
                </div>
